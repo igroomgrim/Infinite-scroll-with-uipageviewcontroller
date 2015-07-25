@@ -2,7 +2,9 @@
 Simply example how to implement Infinite Scroll with UIPageViewController.
 In this project i show example in real world try to combine with UITableView and use swipe(scroll) left or right for filter data on tableview row.
 This project include delegate function for help let you know what is current filter on tableview.
-
+<p align="center">
+<img src="infinite-loop-uipageviewcontroller-filter.gif") alt="Infinite Scroll with custom UIPageViewController with filter"/>
+</p>
 ## Explain Function & Delegate
 ```objective-c
 -(RecordListViewController *)viewControllerAtIndex:(NSUInteger)index {
