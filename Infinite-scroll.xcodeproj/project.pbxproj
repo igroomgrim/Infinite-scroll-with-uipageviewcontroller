@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		14FE18AF1B63BDD1009AA9EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FE18AE1B63BDD1009AA9EB /* main.m */; };
 		14FE18B21B63BDD1009AA9EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FE18B11B63BDD1009AA9EB /* AppDelegate.m */; };
-		14FE18B51B63BDD1009AA9EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FE18B41B63BDD1009AA9EB /* ViewController.m */; };
 		14FE18B81B63BDD1009AA9EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14FE18B61B63BDD1009AA9EB /* Main.storyboard */; };
 		14FE18BA1B63BDD1009AA9EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14FE18B91B63BDD1009AA9EB /* Images.xcassets */; };
 		14FE18BD1B63BDD1009AA9EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FE18BB1B63BDD1009AA9EB /* LaunchScreen.xib */; };
 		14FE18C91B63BDD2009AA9EB /* Infinite_scrollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FE18C81B63BDD2009AA9EB /* Infinite_scrollTests.m */; };
+		14FE18D71B63C068009AA9EB /* PageViewContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FE18D61B63C068009AA9EB /* PageViewContainerViewController.m */; };
+		14FE18DA1B63C0C4009AA9EB /* RecordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FE18D91B63C0C4009AA9EB /* RecordListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +33,16 @@
 		14FE18AE1B63BDD1009AA9EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14FE18B01B63BDD1009AA9EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		14FE18B11B63BDD1009AA9EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		14FE18B31B63BDD1009AA9EB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		14FE18B41B63BDD1009AA9EB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		14FE18B71B63BDD1009AA9EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14FE18B91B63BDD1009AA9EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		14FE18BC1B63BDD1009AA9EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		14FE18C21B63BDD2009AA9EB /* Infinite-scrollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Infinite-scrollTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14FE18C71B63BDD2009AA9EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14FE18C81B63BDD2009AA9EB /* Infinite_scrollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Infinite_scrollTests.m; sourceTree = "<group>"; };
+		14FE18D51B63C068009AA9EB /* PageViewContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewContainerViewController.h; sourceTree = "<group>"; };
+		14FE18D61B63C068009AA9EB /* PageViewContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewContainerViewController.m; sourceTree = "<group>"; };
+		14FE18D81B63C0C4009AA9EB /* RecordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListViewController.h; sourceTree = "<group>"; };
+		14FE18D91B63C0C4009AA9EB /* RecordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +140,10 @@
 		14FE18D41B63BE95009AA9EB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				14FE18B31B63BDD1009AA9EB /* ViewController.h */,
-				14FE18B41B63BDD1009AA9EB /* ViewController.m */,
+				14FE18D51B63C068009AA9EB /* PageViewContainerViewController.h */,
+				14FE18D61B63C068009AA9EB /* PageViewContainerViewController.m */,
+				14FE18D81B63C0C4009AA9EB /* RecordListViewController.h */,
+				14FE18D91B63C0C4009AA9EB /* RecordListViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -243,9 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14FE18B51B63BDD1009AA9EB /* ViewController.m in Sources */,
 				14FE18B21B63BDD1009AA9EB /* AppDelegate.m in Sources */,
+				14FE18D71B63C068009AA9EB /* PageViewContainerViewController.m in Sources */,
 				14FE18AF1B63BDD1009AA9EB /* main.m in Sources */,
+				14FE18DA1B63C0C4009AA9EB /* RecordListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
