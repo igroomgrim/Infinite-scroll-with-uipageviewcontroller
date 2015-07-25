@@ -14,9 +14,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *statusLabel;
 @property (nonatomic, strong) UIPageViewController *pagerView;
 @property (nonatomic, strong) NSArray *viewsArray;
-@property (nonatomic, assign) NSUInteger activeMenuIndex;
-@property (nonatomic, assign) NSUInteger oldMenuIndex;
 @property (nonatomic, assign) NSUInteger currentIndex;
-@property (nonatomic) CGPoint oldOffset;
 @property (nonatomic, strong) NSArray *filterArray;
 @end

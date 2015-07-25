@@ -16,7 +16,7 @@
 
 @synthesize pagerView,viewBoard,statusLabel;
 @synthesize viewsArray,filterArray;
-@synthesize oldOffset,activeMenuIndex,oldMenuIndex,currentIndex;
+@synthesize currentIndex;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,11 +31,8 @@
 
 #pragma mark - PageView Settup
 - (void)pageViewSetup {
-    
-    activeMenuIndex = 1;
-    oldMenuIndex = 1;
+
     currentIndex = 1;
-    oldOffset = CGPointZero;
     filterArray = [NSArray arrayWithObjects:@"Success",@"All",@"Waiting",@"Cancel", nil];
     [self setHeaderStatus:[filterArray objectAtIndex:1]];
     
