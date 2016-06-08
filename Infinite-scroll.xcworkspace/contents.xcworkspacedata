@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Infinite-scroll.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Infinite-scroll-swift/Infinite-scroll-swift.xcodeproj">
+   </FileRef>
 </Workspace>
