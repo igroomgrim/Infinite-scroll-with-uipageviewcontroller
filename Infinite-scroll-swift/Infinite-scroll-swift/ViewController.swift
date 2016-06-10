@@ -13,13 +13,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let ff = self.view.frame
+        
+        let vc1 = OneViewController()
+        let vc2 = TwoViewController()
+        let vc3 = ThreeViewController()
+        
+        let ifn = IFNPageViewController(frame: ff, viewControllers: [vc1, vc2, vc3])
+        addChildViewController(ifn)
+        view.addSubview(ifn.view)
+        ifn.didMoveToParentViewController(self)
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension UIViewController {
+    var index: Int {
+        get {
+            return self.index
+        }
+        set(newValue) {
+            self.index = newValue
+        }
     }
-
-
 }
 
