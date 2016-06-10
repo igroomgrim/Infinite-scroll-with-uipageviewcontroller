@@ -46,38 +46,27 @@ extension IFNPageViewController: UIPageViewControllerDelegate {
 extension IFNPageViewController: UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController,
                             viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = controllers.indexOf(viewController) else {
+        guard let index = controllers.indexOf(viewController) else {
             return nil
         }
         
-        let previousIndex = viewControllerIndex - 1
-        
-        guard previousIndex >= 0 else {
-            return controllers.last
+        if index == 0 {
+            return controllers[controllers.count-1]
         }
         
-        guard controllers.count > previousIndex else {
-            return nil
-        }
-        
+        let previousIndex = index - 1
         return controllers[previousIndex]
     }
     
     func pageViewController(pageViewController: UIPageViewController,
                             viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = controllers.indexOf(viewController) else {
+        guard let index = controllers.indexOf(viewController) else {
             return nil
         }
-        
-        let nextIndex = viewControllerIndex + 1
-        let orderedViewControllersCount = controllers.count
-        
-        guard orderedViewControllersCount != nextIndex else {
+
+        let nextIndex = index + 1
+        if nextIndex == controllers.count {
             return controllers.first
-        }
-        
-        guard orderedViewControllersCount > nextIndex else {
-            return nil
         }
         
         return controllers[nextIndex]

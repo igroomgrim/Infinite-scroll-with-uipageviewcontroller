@@ -25,15 +25,3 @@ class ViewController: UIViewController {
         ifn.didMoveToParentViewController(self)
     }
 }
-
-extension UIViewController {
-    var index: Int {
-        get {
-            return self.index
-        }
-        set(newValue) {
-            self.index = newValue
-        }
-    }
-}
-
