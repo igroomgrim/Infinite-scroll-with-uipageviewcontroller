@@ -8,13 +8,13 @@
 
 import UIKit
 
-public protocol IGGInfinitePageViewDelegate {
+public protocol IGGInfinitePageViewDelegate: class {
     func pageViewCurrentIndex(currentIndex: Int)
 }
 
 public class IGGInfinitePageViewController: UIPageViewController {
     private var controllers: [UIViewController]
-    public var infiniteDelegate: IGGInfinitePageViewDelegate?
+    public weak var infiniteDelegate: IGGInfinitePageViewDelegate?
     
     public init(frame: CGRect, viewControllers: [UIViewController]) {
         controllers = viewControllers
