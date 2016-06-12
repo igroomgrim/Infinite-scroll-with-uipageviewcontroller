@@ -142,11 +142,12 @@ public protocol IGGInfinitePageViewDelegate {
 }
 ```
 
-## Contact
+## Contact Me
 
 Anak Mirasing
 
 - https://github.com/igroomgrim
+- https://www.linkedin.com/in/anakmirasing
 - https://twitter.com/igroomgrim
 - http://www.igroomgrim.com/
 - thaihooligan@hotmail.com
