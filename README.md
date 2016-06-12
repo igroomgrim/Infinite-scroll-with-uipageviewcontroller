@@ -1,4 +1,4 @@
-# Infinite Scroll with custom UIPageViewController
+# IGGInfinitePageViewController : Infinite Scroll with custom UIPageViewController
 Simply example how to implement Infinite Scroll with UIPageViewController.
 In this project i show example in the real world if we want to combine with UITableView and use swipe(scroll) left or right for filter data on tableview row.
 This project include delegate function for let us know what is the current index of view controller when your scroll.
