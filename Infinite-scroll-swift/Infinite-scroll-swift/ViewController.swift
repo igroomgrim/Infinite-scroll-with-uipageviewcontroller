@@ -13,15 +13,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let ff = self.view.frame
+        let exampleFrame = view.frame
         
         let vc1 = OneViewController()
         let vc2 = TwoViewController()
         let vc3 = ThreeViewController()
         
-        let ifn = IFNPageViewController(frame: ff, viewControllers: [vc1, vc2, vc3])
+        let ifn = IFNPageViewController(frame: exampleFrame, viewControllers: [vc1, vc2, vc3])
+        ifn.ifnDelegate = self
+        
+        // Add to your view
         addChildViewController(ifn)
         view.addSubview(ifn.view)
         ifn.didMoveToParentViewController(self)
+    }
+}
+
+extension ViewController: IFNPageViewDelegate {
+    func ifnPageViewCurrentIndex(currentIndex: Int) {
+        print("currentIndex : \(currentIndex)")
     }
 }

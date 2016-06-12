@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol IFNPageViewDelegate {
+    func ifnPageViewCurrentIndex(currentIndex: Int)
+}
+
 class IFNPageViewController: UIPageViewController {
     var controllers: [UIViewController]
-    var currentIndex = 1
+    var ifnDelegate: IFNPageViewDelegate?
     
     init(frame: CGRect, viewControllers: [UIViewController]) {
         controllers = viewControllers
@@ -23,7 +27,7 @@ class IFNPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
+        
         dataSource = self
         guard let firstViewController = controllers.first else {
             return
@@ -33,22 +37,14 @@ class IFNPageViewController: UIPageViewController {
     }
 }
 
-extension IFNPageViewController: UIPageViewControllerDelegate {
-    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
-        
-    }
-    
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
-    }
-}
-
 extension IFNPageViewController: UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController,
                             viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         guard let index = controllers.indexOf(viewController) else {
             return nil
         }
+        
+        ifnDelegate?.ifnPageViewCurrentIndex(index)
         
         if index == 0 {
             return controllers[controllers.count-1]
@@ -63,9 +59,12 @@ extension IFNPageViewController: UIPageViewControllerDataSource {
         guard let index = controllers.indexOf(viewController) else {
             return nil
         }
-
+        
+        ifnDelegate?.ifnPageViewCurrentIndex(index)
+        
         let nextIndex = index + 1
         if nextIndex == controllers.count {
+            
             return controllers.first
         }
         

@@ -15,4 +15,9 @@ class OneViewController: UIViewController {
         self.view.backgroundColor = UIColor.redColor()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("OneViewController : DidAppear")
+    }
 }
