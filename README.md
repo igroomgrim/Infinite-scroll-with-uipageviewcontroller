@@ -13,7 +13,7 @@ This project include delegate function for let us know what is the current index
 * ARC
 
 ## Installation
-* Copy IGGInfinitePageViewController.framework to your project
+* Build & Copy IGGInfinitePageViewController.framework to your project
 * Don't forget add this framework to embedded binaries
 <img src="ex_embedded.png") alt="embedded Infinite Scroll view to your project"/>
 * or just copy and paste code to your project
