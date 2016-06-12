@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var pageControl: UIPageControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -26,11 +27,15 @@ class ViewController: UIViewController {
         addChildViewController(ifn)
         view.addSubview(ifn.view)
         ifn.didMoveToParentViewController(self)
+        
+        pageControl.numberOfPages = 3
+        view.bringSubviewToFront(pageControl)
     }
 }
 
 extension ViewController: IFNPageViewDelegate {
     func ifnPageViewCurrentIndex(currentIndex: Int) {
         print("currentIndex : \(currentIndex)")
+        pageControl.currentPage = currentIndex
     }
 }
