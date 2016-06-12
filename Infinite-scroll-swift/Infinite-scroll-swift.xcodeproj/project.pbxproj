@@ -12,7 +12,6 @@
 		981EF77A1CE1A25F004A1A38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 981EF7781CE1A25F004A1A38 /* Main.storyboard */; };
 		981EF77C1CE1A25F004A1A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 981EF77B1CE1A25F004A1A38 /* Assets.xcassets */; };
 		981EF77F1CE1A25F004A1A38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 981EF77D1CE1A25F004A1A38 /* LaunchScreen.storyboard */; };
-		983BDD3B1D07DE0A003AE8CA /* IFNPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983BDD3A1D07DE09003AE8CA /* IFNPageViewController.swift */; };
 		983BDD3D1D07EA8D003AE8CA /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983BDD3C1D07EA8D003AE8CA /* OneViewController.swift */; };
 		983BDD3F1D07EC6B003AE8CA /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983BDD3E1D07EC6B003AE8CA /* TwoViewController.swift */; };
 		983BDD411D07ECEC003AE8CA /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983BDD401D07ECEC003AE8CA /* ThreeViewController.swift */; };
@@ -26,7 +25,6 @@
 		981EF77B1CE1A25F004A1A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		981EF77E1CE1A25F004A1A38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		981EF7801CE1A25F004A1A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		983BDD3A1D07DE09003AE8CA /* IFNPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFNPageViewController.swift; sourceTree = "<group>"; };
 		983BDD3C1D07EA8D003AE8CA /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		983BDD3E1D07EC6B003AE8CA /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		983BDD401D07ECEC003AE8CA /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				981EF7761CE1A25F004A1A38 /* ViewController.swift */,
-				983BDD3A1D07DE09003AE8CA /* IFNPageViewController.swift */,
 				983BDD3C1D07EA8D003AE8CA /* OneViewController.swift */,
 				983BDD3E1D07EC6B003AE8CA /* TwoViewController.swift */,
 				983BDD401D07ECEC003AE8CA /* ThreeViewController.swift */,
@@ -180,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				983BDD3F1D07EC6B003AE8CA /* TwoViewController.swift in Sources */,
-				983BDD3B1D07DE0A003AE8CA /* IFNPageViewController.swift in Sources */,
 				981EF7771CE1A25F004A1A38 /* ViewController.swift in Sources */,
 				983BDD411D07ECEC003AE8CA /* ThreeViewController.swift in Sources */,
 				983BDD3D1D07EA8D003AE8CA /* OneViewController.swift in Sources */,

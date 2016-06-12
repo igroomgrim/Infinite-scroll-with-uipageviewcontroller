@@ -1,31 +1,31 @@
 //
-//  IFNPageViewController.swift
-//  Infinite-scroll-swift
+//  IGGInfinitePageViewController.swift
+//  IGGInfinitePageViewController
 //
-//  Created by Anak Mirasing on 6/8/16.
-//  Copyright © 2016 iGROOMGRiM. All rights reserved.
+//  Created by Anak Mirasing on 6/12/2559 BE.
+//  Copyright © 2559 iGROOMGRiM. All rights reserved.
 //
 
 import UIKit
 
-protocol IFNPageViewDelegate {
-    func ifnPageViewCurrentIndex(currentIndex: Int)
+public protocol IGGInfinitePageViewDelegate {
+    func pageViewCurrentIndex(currentIndex: Int)
 }
 
-class IFNPageViewController: UIPageViewController {
-    var controllers: [UIViewController]
-    var ifnDelegate: IFNPageViewDelegate?
+public class IGGInfinitePageViewController: UIPageViewController {
+    private var controllers: [UIViewController]
+    public var infiniteDelegate: IGGInfinitePageViewDelegate?
     
-    init(frame: CGRect, viewControllers: [UIViewController]) {
+    public init(frame: CGRect, viewControllers: [UIViewController]) {
         controllers = viewControllers
         super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = self
@@ -37,14 +37,14 @@ class IFNPageViewController: UIPageViewController {
     }
 }
 
-extension IFNPageViewController: UIPageViewControllerDataSource {
-    func pageViewController(pageViewController: UIPageViewController,
+extension IGGInfinitePageViewController: UIPageViewControllerDataSource {
+    public func pageViewController(pageViewController: UIPageViewController,
                             viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         guard let index = controllers.indexOf(viewController) else {
             return nil
         }
         
-        ifnDelegate?.ifnPageViewCurrentIndex(index)
+        infiniteDelegate?.pageViewCurrentIndex(index)
         
         if index == 0 {
             return controllers[controllers.count-1]
@@ -54,13 +54,13 @@ extension IFNPageViewController: UIPageViewControllerDataSource {
         return controllers[previousIndex]
     }
     
-    func pageViewController(pageViewController: UIPageViewController,
+    public func pageViewController(pageViewController: UIPageViewController,
                             viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         guard let index = controllers.indexOf(viewController) else {
             return nil
         }
         
-        ifnDelegate?.ifnPageViewCurrentIndex(index)
+        infiniteDelegate?.pageViewCurrentIndex(index)
         
         let nextIndex = index + 1
         if nextIndex == controllers.count {
@@ -71,4 +71,3 @@ extension IFNPageViewController: UIPageViewControllerDataSource {
         return controllers[nextIndex]
     }
 }
-

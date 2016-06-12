@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IGGInfinitePageViewController
 
 class ViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
@@ -20,21 +21,21 @@ class ViewController: UIViewController {
         let vc2 = TwoViewController()
         let vc3 = ThreeViewController()
         
-        let ifn = IFNPageViewController(frame: exampleFrame, viewControllers: [vc1, vc2, vc3])
-        ifn.ifnDelegate = self
+        let ifnPageScroll = IGGInfinitePageViewController(frame: exampleFrame, viewControllers: [vc1, vc2, vc3])
+        ifnPageScroll.infiniteDelegate = self
         
         // Add to your view
-        addChildViewController(ifn)
-        view.addSubview(ifn.view)
-        ifn.didMoveToParentViewController(self)
+        addChildViewController(ifnPageScroll)
+        view.addSubview(ifnPageScroll.view)
+        ifnPageScroll.didMoveToParentViewController(self)
         
         pageControl.numberOfPages = 3
         view.bringSubviewToFront(pageControl)
     }
 }
 
-extension ViewController: IFNPageViewDelegate {
-    func ifnPageViewCurrentIndex(currentIndex: Int) {
+extension ViewController: IGGInfinitePageViewDelegate {
+    func pageViewCurrentIndex(currentIndex: Int) {
         print("currentIndex : \(currentIndex)")
         pageControl.currentPage = currentIndex
     }
