@@ -1,0 +1,10 @@
+framework module IGGInfinitePageViewController {
+  umbrella header "IGGInfinitePageViewController.h"
+
+  export *
+  module * { export * }
+}
+
+module IGGInfinitePageViewController.Swift {
+    header "IGGInfinitePageViewController-Swift.h"
+}
