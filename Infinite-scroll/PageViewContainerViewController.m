@@ -17,7 +17,7 @@
 @synthesize pagerView,viewBoard,statusLabel;
 @synthesize viewsArray,filterArray;
 @synthesize currentIndex;
-
+        
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self pageViewSetup];
