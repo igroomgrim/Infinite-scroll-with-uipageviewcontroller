@@ -9,23 +9,23 @@
 import UIKit
 
 public protocol IGGInfinitePageViewDelegate: class {
-    func pageViewCurrentIndex(currentIndex: Int)
+    func pageViewCurrentIndex(_ currentIndex: Int)
 }
 
-public class IGGInfinitePageViewController: UIPageViewController {
-    private var controllers: [UIViewController]
-    public weak var infiniteDelegate: IGGInfinitePageViewDelegate?
+open class IGGInfinitePageViewController: UIPageViewController {
+    fileprivate var controllers: [UIViewController]
+    open weak var infiniteDelegate: IGGInfinitePageViewDelegate?
     
     public init(frame: CGRect, viewControllers: [UIViewController]) {
         controllers = viewControllers
-        super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = self
@@ -33,14 +33,14 @@ public class IGGInfinitePageViewController: UIPageViewController {
             return
         }
         
-        setViewControllers([firstViewController], direction: .Forward, animated: true, completion: nil)
+        setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
     }
 }
 
 extension IGGInfinitePageViewController: UIPageViewControllerDataSource {
-    public func pageViewController(pageViewController: UIPageViewController,
-                            viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        guard let index = controllers.indexOf(viewController) else {
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = controllers.index(of: viewController) else {
             return nil
         }
         
@@ -54,9 +54,9 @@ extension IGGInfinitePageViewController: UIPageViewControllerDataSource {
         return controllers[previousIndex]
     }
     
-    public func pageViewController(pageViewController: UIPageViewController,
-                            viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        guard let index = controllers.indexOf(viewController) else {
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = controllers.index(of: viewController) else {
             return nil
         }
         

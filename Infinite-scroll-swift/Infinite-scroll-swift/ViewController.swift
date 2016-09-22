@@ -27,15 +27,15 @@ class ViewController: UIViewController {
         // Add to your view
         addChildViewController(ifnPageScroll)
         view.addSubview(ifnPageScroll.view)
-        ifnPageScroll.didMoveToParentViewController(self)
+        ifnPageScroll.didMove(toParentViewController: self)
         
         pageControl.numberOfPages = 3
-        view.bringSubviewToFront(pageControl)
+        view.bringSubview(toFront: pageControl)
     }
 }
 
 extension ViewController: IGGInfinitePageViewDelegate {
-    func pageViewCurrentIndex(currentIndex: Int) {
+    func pageViewCurrentIndex(_ currentIndex: Int) {
         print("currentIndex : \(currentIndex)")
         pageControl.currentPage = currentIndex
     }
