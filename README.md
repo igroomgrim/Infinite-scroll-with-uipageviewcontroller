@@ -6,11 +6,8 @@ This project include delegate function for let us know what is the current index
 <img src="infinite-loop-uipageviewcontroller-filter.gif") alt="Infinite Scroll with custom UIPageViewController with filter"/>
 </p>
 ## Requirements
-* Xcode 7 or higher
-* Swift 2.0+
-* Apple LLVM compiler
-* iOS 8.0 or higher
-* ARC
+* Xcode 8
+* Swift 3
 
 ## Installation
 * Build & Copy IGGInfinitePageViewController.framework to your project
@@ -40,7 +37,10 @@ override func viewDidLoad() {
         // Add to your view
         addChildViewController(ifnPageScroll)
         view.addSubview(ifnPageScroll.view)
-        ifnPageScroll.didMoveToParentViewController(self)
+        ifnPageScroll.didMove(toParentViewController: self)
+        
+        pageControl.numberOfPages = 3
+        view.bringSubview(toFront: pageControl)
     }
 ```
 * if you want to use with delegate
@@ -48,19 +48,22 @@ override func viewDidLoad() {
 extension ViewController: IGGInfinitePageViewDelegate {
     func pageViewCurrentIndex(currentIndex: Int) {
         print("currentIndex : \(currentIndex)")
+        pageControl.currentPage = currentIndex
         
         // Do what you want with currentIndex
     }
 }
 ```
 
-## Explain Function & Delegate (Swift : New Version)
+## Explain Function & Delegate (Swift 3)
 ```swift
-public func pageViewController(pageViewController: UIPageViewController,
-                            viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        guard let index = controllers.indexOf(viewController) else {
+public func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = controllers.index(of: viewController) else {
             return nil
         }
+        
+        infiniteDelegate?.pageViewCurrentIndex(index)
         
         if index == 0 {
             return controllers[controllers.count-1]
@@ -70,75 +73,28 @@ public func pageViewController(pageViewController: UIPageViewController,
         return controllers[previousIndex]
     }
     
-public func pageViewController(pageViewController: UIPageViewController,
-                            viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-    guard let index = controllers.indexOf(viewController) else {
-        return nil
-    }
-
-    let nextIndex = index + 1
-    if nextIndex == controllers.count {
-            
-        return controllers.first
-    }
+public func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = controllers.index(of: viewController) else {
+            return nil
+        }
         
-    return controllers[nextIndex]
-}
+        infiniteDelegate?.pageViewCurrentIndex(index)
+        
+        let nextIndex = index + 1
+        if nextIndex == controllers.count {
+            
+            return controllers.first
+        }
+        
+        return controllers[nextIndex]
+    }
 
 ```
 * Delegate
 ```swift
-public protocol IGGInfinitePageViewDelegate {
-    func pageViewCurrentIndex(currentIndex: Int)
-}
-```
-
-## Explain Function & Delegate (Obj-C : Old version)
-```objective-c
--(RecordListViewController *)viewControllerAtIndex:(NSUInteger)index {
-    
-    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    RecordListViewController *childVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"RecordListViewController"];
-    childVC.delegate = self;
-    childVC.indexNumber = index;
-    
-    return childVC;
-}
-
-#pragma mark - Filter Menu Delegate
--(void)setCurrentFilterIndex:(NSUInteger)filterCurrentIndex {
-    currentIndex = filterCurrentIndex;
-    [self setHeaderStatus:[filterArray objectAtIndex:currentIndex]];
-}
-
-#pragma mark - PageView Datasource
--(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    
-    NSUInteger index = [(RecordListViewController *)viewController indexNumber];
-    
-    if (index == 0) {
-        
-        return [self viewControllerAtIndex:filterArray.count-1];
-    }
-    index--;
-    return [self viewControllerAtIndex:index];
-}
-
--(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    
-    NSUInteger index = [(RecordListViewController *)viewController indexNumber];
-    index++;
-    if (index == filterArray.count) {
-        return [self viewControllerAtIndex:0];;
-    }
-    return [self viewControllerAtIndex:index];
-}
-
-#pragma mark - PageView Delegate
--(void)pageViewScroll:(NSUInteger)index andDirection:(UIPageViewControllerNavigationDirection)direction andAnimate:(BOOL)anim {
-    RecordListViewController *vcObject = [self viewControllerAtIndex:index];
-    viewsArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayWithObject:vcObject]];
-    [pagerView setViewControllers:viewsArray direction:direction animated:anim completion:nil];
+public protocol IGGInfinitePageViewDelegate: class {
+    func pageViewCurrentIndex(_ currentIndex: Int)
 }
 ```
 
