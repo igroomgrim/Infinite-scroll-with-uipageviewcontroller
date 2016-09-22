@@ -5,6 +5,9 @@ This project include delegate function for let us know what is the current index
 <p align="center">
 <img src="infinite-loop-uipageviewcontroller-filter.gif") alt="Infinite Scroll with custom UIPageViewController with filter"/>
 </p>
+## New version for Swift 3 release
+👉 [Infinite Scroll UIPageViewController in Swift 3] (https://github.com/igroomgrim/Infinite-scroll-with-uipageviewcontroller/tree/swift-3)👈
+
 ## Requirements
 * Xcode 7 or higher
 * Swift 2.0+
